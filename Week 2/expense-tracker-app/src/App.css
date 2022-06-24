@@ -73,6 +73,8 @@ body {
     box-shadow: var(--box-shadow);
     margin-bottom: 10px;
     padding: 10px;
+    font-size: small;
+    font-weight: 600;
 }
 
 .transactions li div {
@@ -119,7 +121,12 @@ body {
 .Expense-tracker-head
 {
     font-family: 'Montserrat', monospace;
-    font-weight: 1000;
+    font-weight: 2000;
     font-size: 40px;
     color: rgb(116, 3, 3);
+}
+p.Transaction_list_heading
+{
+    word-spacing: 30px;
+    font-weight: bolder;
 }
