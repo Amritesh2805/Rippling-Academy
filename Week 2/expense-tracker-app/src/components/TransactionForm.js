@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { uniqueId } from '../utils';
 import DatePicker from 'react-datepicker';
-// import Select from 'react-select';
 
 
 function TransactionForm({ onNewTransaction }) {
@@ -9,24 +8,15 @@ function TransactionForm({ onNewTransaction }) {
     const [amountValue, setAmountValue] = useState('');
     const [dateValue, setDateValue] = useState([]);
      const [billtypeValue, setBilltypeValue] = useState(null);
+     const [categoryValue, setCategoryValue] = useState(null);
 
-    // const billData = [
-    //     {value: 1,
-    //     label: "Cash"},
-    //     {value: 2,
-    //         label: "Cheque"},
-    //         {value: 3,
-    //             label: "Card"},
-    //             {value: 4,
-    //                 label: "UPI"},
-
-    // ];
     const addTransaction = (type, evt) => {
         evt.preventDefault();
 
         const data = { id: uniqueId(), name: nameValue, date: dateValue,
                  billtype: billtypeValue,
-                amount: parseInt(amountValue), type: type };
+                amount: parseInt(amountValue), category: categoryValue,
+                type: type };
 
         onNewTransaction(data);
 
@@ -34,20 +24,21 @@ function TransactionForm({ onNewTransaction }) {
         setAmountValue('');
         setDateValue([]);
         setBilltypeValue([]);
+        setCategoryValue([]);
     }
 
     return (
         <div>
             <h3>Add New Transactions -</h3>
             <form className='transaction-form'>
-                <label>
+                <label className='lable'>
                     Name
                     <div>
                         <input type="text" value={nameValue}
                             onChange={(e) => setNameValue(e.target.value)} />
                     </div>
                 </label>
-                <label>
+                <label className='lable'>
                     Amount
                     <div>
                         <input type="number" value={amountValue}
@@ -55,14 +46,14 @@ function TransactionForm({ onNewTransaction }) {
                     </div>
                 </label>
                 
-                <label>
+                <label className='lable'>
                     Date
                     <div>
                         <input type="date" value={dateValue}
                             onChange={(e) => setDateValue(e.target.value)} />
                     </div>
                 </label>
-                <label>
+                <label className='lable'>
                     Bill Type
                     <div>
                         <select value={billtypeValue}
@@ -75,6 +66,25 @@ function TransactionForm({ onNewTransaction }) {
                                 <option value="UPI">UPI</option>
                                 </optgroup>
                         </select>
+                        
+                    </div>
+                </label>
+                <label className='lable'>
+                    Category
+                    <div>
+                        <select value={categoryValue}
+                            onChange={(e) => setCategoryValue(e.target.value)}>
+                                <option value="">--Category--</option>
+                                <optgroup label="--Bill type--">
+                                <option value="Mortgages">Mortgages</option>
+                                <option value="Groceries">Groceries</option>
+                                <option value="Home_maintainence">Home maintainence</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Cash_Withdrawals">ATM/Cash Withdrawals</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Others">Others...</option>
+                                </optgroup>
+                        </select>
                         {/* <Select
                         value={billtypeValue}
                         onChange={(e) => setBilltypeValue(e)}
@@ -83,11 +93,12 @@ function TransactionForm({ onNewTransaction }) {
                         
                     </div>
                 </label>
-                <div>
+                </form>
+                <div className='add_buttons'>
                     <button className='income-btn' onClick={(e) => addTransaction('income', e)}>Add Budget</button>
                     <button className='expense-btn' onClick={(e) => addTransaction('expense', e)}>Add Expense</button>
                 </div>
-            </form>
+            {/* </form> */}
         </div>
     )
 }

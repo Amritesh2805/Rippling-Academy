@@ -88,7 +88,9 @@ body {
 
 .transaction-form {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    width: 80%;
+    flex-wrap: wrap;
 }
 
 .transaction-form input {
@@ -113,10 +115,12 @@ body {
 
 .income-btn {
     background-color: var(--income);
+    width: 20%;
 }
 
 .expense-btn {
     background-color: var(--expense);
+    width: 20%;
 }
 .Expense-tracker-head
 {
@@ -127,6 +131,14 @@ body {
 }
 p.Transaction_list_heading
 {
-    word-spacing: 30px;
+    word-spacing: 90px;
     font-weight: bolder;
+}
+
+.lable{
+    width: 40%;
+}
+
+.add_buttons{
+    width: 100%;
 }
