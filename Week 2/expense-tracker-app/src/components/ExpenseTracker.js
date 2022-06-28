@@ -63,6 +63,8 @@ function ExpenseTracker() {
         calculateExpenses();
     }, [transactions]);
 
+
+
     return (
         <div>
             <h1 className='Expense-tracker-head'>Expense Tracker</h1>
@@ -70,6 +72,8 @@ function ExpenseTracker() {
             <TransactionForm onNewTransaction={handleAddNewTransaction} />
             <TransactionHistory transactions={transactions}
                 onDeleteTransaction={handleDeleteTransaction} />
+            
+                
         </div>
     )
 }
