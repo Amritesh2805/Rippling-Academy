@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/action';
 import {useParams} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
-import FadeLoader from "react-spinners/FadeLoader";
+import DotLoader from "react-spinners/DotLoader";
 import './Product.css';
 
 function Product() {
@@ -30,7 +30,7 @@ function Product() {
     const Loading = () => {
         return(
             <div className = "animations">
-            <FadeLoader color={"#011c4a"} loading={loading} size={100} />
+            <DotLoader color={"#011c4a"} loading={loading} size={100} />
             </div>
           )
     }
