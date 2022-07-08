@@ -1,0 +1,10 @@
+.animations
+{
+    text-align: center;
+    background-color: white;
+    display: flex;
+    position: relative;
+    top: 200px;
+    justify-content: center;
+    align-items: center;
+}
