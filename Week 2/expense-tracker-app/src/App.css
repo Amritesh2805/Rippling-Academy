@@ -1,0 +1,149 @@
+:root {
+    --box-shadow: 0px 1px 4px 1px rgba(199,199,199,1);
+    --income: rgb(247, 125, 54);
+    --expense: rgb(4, 117, 137);
+    width: 100%;
+}
+
+body {
+    font-family: 'Open Sans', monospace;
+    letter-spacing: 0px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: beige;
+}
+
+.balance-val {
+    font-size: 25px;
+    color: rgb(105, 4, 155);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.col h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.row-expense {
+    box-shadow: var(--box-shadow);
+    margin-top: 20px;
+    width: 240px;
+}
+
+.col-income, .col-expense {
+    padding: 20px;
+}
+
+.col-expense {
+    padding-left: 10px;
+}
+
+.col-income span {
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    padding-right: 30px;
+}
+
+.income-text {
+    color: var(--income);
+}
+
+.expense-text {
+    color: var(--expense);
+}
+
+.transactions, .transactions li {
+    padding: 1px;
+    margin: 1px;
+}
+
+.transactions li {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: small;
+    font-weight: 600;
+}
+
+.transactions li div {
+    margin-right: 10px;
+}
+
+.transactions li span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.transaction-form {
+    display: flex;
+    /* flex-direction: column; */
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+.transaction-form input {
+    width: 97%;
+    height: 25px;
+    background-color: bisque;
+}
+
+.transaction-form label {
+    margin-bottom: 10px;
+}
+
+.transaction-form button {
+    height: 30px;
+    margin-bottom: 5px;
+    border: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: white;
+    width: 50%;
+}
+
+.income-btn {
+    background-color: var(--income);
+    width: 20%;
+}
+
+.expense-btn {
+    background-color: var(--expense);
+    width: 20%;
+}
+.Expense-tracker-head
+{
+    font-family: 'Montserrat', monospace;
+    font-weight: 2000;
+    font-size: 40px;
+    color: rgb(116, 3, 3);
+}
+p.Transaction_list_heading
+{
+    word-spacing: 90px;
+    font-weight: bolder;
+}
+
+.lable{
+    width: 40%;
+}
+
+.add_buttons{
+    width: 100%;
+}
+
+.width_100{
+    width: 100%;
+}
