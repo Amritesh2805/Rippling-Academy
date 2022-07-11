@@ -1,4 +1,4 @@
-from BoardGame import BoardGame
+from model.BoardGame import BoardGame
 
 class TicTacToeBoardGame(BoardGame):
     def print_header(self):

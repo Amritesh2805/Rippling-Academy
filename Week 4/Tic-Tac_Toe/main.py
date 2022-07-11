@@ -1,4 +1,4 @@
-from Engine import Engine
+from model.Engine import Engine
 
 def main():
     game = Engine()

@@ -1,6 +1,6 @@
 import os
 os.system("clear")
-from Board import Board
+from model.Board import Board
 
 class Engine:
     
@@ -9,15 +9,16 @@ class Engine:
 
 
 
+
     def is_valid_input(self,splitted_string):
-       
+        """Checks for validity of input"""
         if len(splitted_string) != 2:
             return False
         for splits in splitted_string:
             if not splits.isnumeric() or ((int(splits)<1) or (int(splits)>self.board.side_length)):
                 return False
-
         return True
+
 
 
 
@@ -30,6 +31,7 @@ class Engine:
             new_splitted_string.append(new_split)
 
         return new_splitted_string
+
 
 
 
@@ -49,6 +51,8 @@ class Engine:
 
 
 
+
+
     def play(self):
         """Starts the game"""
         self.initialise_board()
@@ -58,20 +62,19 @@ class Engine:
             x_choice = self.get_Position("X")
 
             if x_choice == 0:      #restarts game if invalid input
-                self.board.reset()
-                print("Invalid input. Game restarting!")
-                continue
+                raise ValueError("Invalid input")
+                # self.board.reset()
+                # continue
             
 
-            while self.board.is_occupied(x_choice):
+            while self.board.is_occupied(x_choice): #loop until an input found which is not already filled
                 print("Given position is already filled!")
                 x_choice = self.get_Position("X")
                 
-            self.board.update_cell(x_choice,"X")
-                       
+            self.board.update_cell(x_choice,"X")                      
             self.board.refresh_screen()
 
-            if self.board.is_winner("X"):
+            if self.board.is_winner("X"):  #check for X win
                 print("\nX has won the match!\n")
                 play_again = input("Would you like to play again? [Y/N] > ").upper()
                 if play_again == "Y":
@@ -80,7 +83,7 @@ class Engine:
                 else:
                     break
 
-            if self.board.is_tied():
+            if self.board.is_tied():  #check for tied match
                 print("\nGame tied.\n")
                 play_again = input("Would you like to play again? [Y/N] > ").upper()
                 if play_again == "Y":
@@ -92,20 +95,20 @@ class Engine:
             o_choice = self.get_Position("O")
             
             if o_choice == 0: #restarts game if invalid input
-                print("Invalid input. Game restarting!")
-                self.board.reset()
-                continue
+                raise ValueError("Invalid input")
+                # print("Invalid input. Game restarting!")
+                # self.board.reset()
+                # continue
 
-            while self.board.is_occupied(o_choice):
+            while self.board.is_occupied(o_choice):  #loop until an input found which is not already filled
                 print("Given position is already filled!")
                 o_choice = self.get_Position("O")
                
 
             self.board.update_cell(o_choice,"O")
-
             self.board.refresh_screen()
 
-            if self.board.is_winner("O"):
+            if self.board.is_winner("O"):  #check for O win
                 print("\nO has won the match!\n")
                 play_again = input("Would you like to play again? [Y/N] > ").upper()
                 if play_again == "Y":
@@ -114,7 +117,7 @@ class Engine:
                 else:
                     break
 
-            if self.board.is_tied():
+            if self.board.is_tied():   #check for tied match
                 print("\nGame tied.\n")
                 play_again = input("Would you like to play again? [Y/N] > ").upper()
                 if play_again == "Y":
